@@ -61,7 +61,40 @@ ResultState.show(3)
 护的，因为增加或者删除一个状态需要改动的地方太多了。此时使用状态模式就再好不过了。对与玛丽，有的时候它
 需要跳跃开枪，有的时候需要蹲下开枪，有的时候需要奔跑开枪等，如果这些组合状态用if或者switch分支判断去
 是实现，无形中增加的成本是无法想象的。举例如下：
+
 <!-- 单动作条件判断，每增加一个动作就需要添加一个判断 -->
+let lastAction = '';
+function changeMarray(action){
+    if(action == 'jump'){
+        <!-- 跳跃动作 -->
+    }else if(action == 'move'){
+        <!-- 移动动作 -->
+    }else{
+        <!-- 默认动作 -->
+    }
+    lastAction = action;
+}
+
+<!-- 复合动作对条件判断的开销是翻倍的 -->
+let lastAction1 = '';
+let lastAction2 = '';
+function changeMarry(action1,action2){
+    if(action1 == 'shoot'){
+        <!-- 射击 -->
+    }else if(action1 == 'jump'){
+        <!-- 跳跃 -->
+    }else if(action1 == 'move' && action2 == 'shoot'){
+        <!-- 移动中射击 -->
+    }else if(action1 == 'jump' && action2 == 'shoot'){
+        <!-- 跳跃中射击 -->
+    }
+    <!-- 保留上一个动作 -->
+    lastAction1 = action1 || '';
+    lastAction2 = action2 || '';
+}
+
+状态的变化
+
 
 ```
 
