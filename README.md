@@ -102,8 +102,47 @@ function changeMarry(action1,action2){
 <!-- 创建超级玛丽状态类 -->
 let MarryState = function(){
     <!-- 内部状态私有变量 -->
-    let currentState = {};
+    let _currentState = {};
     <!-- 动作与状态方法映射 -->
+    states = {
+        jump:function(){
+            <!-- 跳跃 -->
+            console.log('jump')
+        },
+        move:function(){
+            <!-- 移动 -->
+            console.log('move')
+        },
+        shoot:function(){
+            <!-- 射击 -->
+            console.log('shoot')
+        },
+        squat:function(){
+            <!-- 蹲下 -->
+            console.log('squat')
+        }
+    }
+
+    <!-- 动作控制类 -->
+    let Action = {
+        <!-- 改变状态方法 -->
+        changeState: function(){
+            <!-- 组合动作通过传递多个参数实现 -->
+            let arg = arguments;
+            <!-- 重置内部状态 -->
+            _currentState = {};
+            <!-- 如果有动作则添加动作 -->
+            if(arg.length){
+                <!-- 遍历动作 -->
+                for(var i = 0,len = arg.length; i < len; i++){
+                    <!-- 向内部状态中添加动作 -->
+                    _currentState[arg[i]] = true;
+                }
+            }
+            return this; // 实现了链式调用
+        },
+        
+    }
 }
 
 
