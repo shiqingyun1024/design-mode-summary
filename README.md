@@ -139,11 +139,28 @@ let MarryState = function(){
                     _currentState[arg[i]] = true;
                 }
             }
+            <!-- 返回动作控制类 -->
             return this; // 实现了链式调用
         },
-        
+        <!-- 执行动作 -->
+        goes: function(){
+            console.log('触发一次动作');
+            <!-- 遍历内部状态保存的动作 -->
+            for(let i in _currentState){
+                <!-- 如果该动作存在则执行 -->
+                states[i] && states[i]();
+            }
+            return this;
+        }
+    }
+    <!-- 返回接口方法 change、goes -->
+    return {
+        change: Action.changeState,
+        goes: Action.goes
     }
 }
+两种使用方式
+对于上面状态模式封装的方法，我们通常有两种使用方式。
 
 
 
