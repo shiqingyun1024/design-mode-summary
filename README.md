@@ -167,7 +167,18 @@ MarryState()
     .change('jump', 'shoot')  // 添加跳跃与射击动作
     .goes()                   // 执行动作
     .goes()                   // 执行动作
+    .change('shoot')          // 添加射击动作
+    .goes()                   // 执行动作
 
+为了更安全我们还是实例化一下这个状态类，这样我们使用的是对状态类的一个复制品，这样无论你怎么使用，都可以放心了。
+<!-- 创建一个超级玛丽 -->
+let marry = new MarryState();
+marry
+    .change('jump', 'shoot')  // 添加跳跃与射击动作
+    .goes()                   // 执行动作
+    .goes()                   // 执行动作
+    .change('shoot')          // 添加射击动作
+    .goes()                   // 执行动作
 
 
 ```
