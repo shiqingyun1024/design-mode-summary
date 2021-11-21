@@ -229,6 +229,17 @@ function percent90(price){}
 策略对象中的算法调用即可，而策略算法又独立地分装在策略对象内。为方便我们的管理与使用，我们需要返回一个
 调用接口对象来实现对策略算法的调用。
 策略对象
+<!-- 价格策略对象 -->
+let PriceStrategy = function(){
+    <!-- 内部算法对象 -->
+    let stragtegy = {
+        <!-- 100返30 -->
+        return30: function(price){
+            <!-- parseInt 可通过~~、|等运算符替换，要注意此时price要在[] -->
+
+        }
+    }
+}
 ```
 
 
