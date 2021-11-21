@@ -235,7 +235,10 @@ let PriceStrategy = function(){
     let stragtegy = {
         <!-- 100返30 -->
         return30: function(price){
-            <!-- parseInt 可通过~~、|等运算符替换，要注意此时price要在[] -->
+            <!-- parseInt 可通过~~、|等运算符替换，要注意此时price要在[-2147483648,
+            2147483648] 之间-->
+            <!-- +price转化为数字类型 -->
+            return +price + parseInt(price / 100) * 30;
 
         }
     }
