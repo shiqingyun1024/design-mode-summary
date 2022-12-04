@@ -243,6 +243,23 @@ let PriceStrategy = function(){
         }
     }
 }
+
+年终奖的发放 = 工资 * 绩效等级（S、A、B、C等）
+let bonus = {
+   'S':function(salary){
+      return salary * 4
+   },
+   'A':function(salary){
+      return salary * 3
+   },
+   'B':function(salary){
+      return salary * 2
+   },
+   'C':function(salary){
+      return salary * 1
+   }
+}
+
 ```
 
 
